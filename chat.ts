@@ -37,7 +37,7 @@ export async function chat(){
         // console.log(`\nRetrieved ${relevantChunks.length} similar documents from AstraDB:`);
 
         const context = relevantChunks.map(chunk=>chunk.content).join('\n\n')
-        const SYSTEM_PROMPT = `You are a helpful assistance`
+        const SYSTEM_PROMPT = `You are a helpful assistance, you are given a question and some context, answer the question based on the context. If you don't know the answer, just say that you don't know, don't try to make up an answer.`
 
         const useQuery = `Question: ${question}
         Relevant Context: ${context}
